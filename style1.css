@@ -1,0 +1,186 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #081b29;
+    color: #ededed;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* En-tête */
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 5%;
+    background-color: #081b29;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #ededed;
+    font-weight: 600;
+    text-decoration: none;
+    position: absolute; /* Position absolue pour le logo */
+    left: 5%; /* Position à gauche */
+}
+
+.navbar {
+    display: flex;
+    gap: 2rem;
+    position: absolute; /* Position absolue pour la navbar */
+    right: 5%; /* Position à droite */
+}
+
+.navbar a {
+    font-size: 1.4rem;
+    color: #ededed;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #00abf0;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .navbar {
+        gap: 1rem;
+    }
+
+    .navbar a {
+        font-size: 1.2rem;
+    }
+}
+
+/* Conteneur des projets */
+.projects-container {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+/* Section de projet */
+.project-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: #112e42;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.project-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ededed;
+}
+
+/* Contenu du projet */
+.project-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image {
+    flex: 1 1 40%;
+    max-width: 400px;
+}
+
+.project-image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 171, 240, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 1.5rem rgba(0, 171, 240, 0.8);
+}
+
+.project-info {
+    flex: 1 1 50%;
+    text-align: left;
+}
+
+.project-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ededed;
+}
+
+.project-info h4 {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #00abf0;
+}
+
+.project-info p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.project-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.project-info ul li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #ededed;
+    display: flex;
+    align-items: center;
+}
+
+.project-info ul li::before {
+    content: "•";
+    color: #00abf0;
+    margin-right: 0.5rem;
+}
+
+.project-info .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00abf0;
+    color: #081b29;
+    border: 0.2rem solid #00abf0;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project-info .btn:hover {
+    background-color: #081b29;
+    color: #00abf0;
+}
