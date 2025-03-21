@@ -13,4 +13,5 @@ document.addEventListener('scroll', () => {
     if (infoTop < windowHeight * 0.75) {
         projectInfo.classList.add('visible');
     }
+
 });

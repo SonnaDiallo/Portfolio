@@ -1,19 +1,140 @@
 /* Styles généraux */
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #0b1120; /* Fond sombre */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.projects-container {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 2rem;
+}
+
+/* Style des sections de projet */
+.project-section {
+    background: #0d1b2a; /* Bleu foncé */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 3rem; /* Espacement entre les projets */
+}
+
+/* Titres des projets */
+.project-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00aaff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Contenu du projet */
+.project-content {
+    background: transparent;
+    border: 2px solid #00aaff; /* Bordure principale */
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol */
+.project-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 15px rgba(0, 170, 255, 0.5);
+}
+
+/* Titres et textes */
+.project-info h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.project-info h4 {
+    font-size: 1.2rem;
+    color: #00aaff;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+/* Liste des technologies */
+.project-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-info ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+/* Style du bouton */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #00aaff;
+    color: #081b29;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s ease-in-out;
+}
+
+/* Effet au survol */
+.btn:hover {
+    background-color: #0088cc;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-container {
+        padding: 1rem;
+    }
+
+    .project-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* Styles généraux
+body {
+    font-family: 'Poppins', sans-serif;
     background-color: #081b29;
     color: #ededed;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-}
+} */
 
 /* En-tête */
 .header {
     width: 100%;
     box-sizing: border-box;
     padding: 1rem 5%;
-    background-color: #081b29;
+    background-color: var(--second-bg-color);
     position: fixed;
     top: 0;
     left: 0px;
@@ -29,19 +150,20 @@ body {
 }
 
 .logo {
-    font-size: 2rem;
-    color: #ededed;
+    font-size: 2.5rem;  /* Taille augmentée */
+    color: #00abf0;     /* Couleur bleue pour ressortir */
     font-weight: 600;
     text-decoration: none;
-    position: absolute; /* Position absolue pour le logo */
-    left: 5%; /* Position à gauche */
+    position: absolute;
+    left: 5%;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     gap: 2rem;
-    position: absolute; /* Position absolue pour la navbar */
-    right: 5%; /* Position à droite */
+    position: absolute;
+    right: 5%;
 }
 
 .navbar a {
@@ -52,17 +174,19 @@ body {
 }
 
 .navbar a:hover {
-    color: #00abf0;
+    color: #00abf0;  /* Bleu clair au survol */
 }
 
-/* Styles pour les petits écrans */
+/* Responsive pour petits écrans */
 @media (max-width: 768px) {
     .header {
         padding: 1rem;
     }
 
     .navbar {
+        flex-direction: column;  /* Colonne pour les petits écrans */
         gap: 1rem;
+        align-items: center;
     }
 
     .navbar a {
@@ -70,13 +194,72 @@ body {
     }
 }
 
-/* Conteneur des projets */
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none; /* Masqué par défaut sur les grands écrans */
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block; /* Afficher l'icône du menu sur les petits écrans */
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Masquer la navigation par défaut */
+        width: 100%;
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transition: left 0.3s ease;
+    }
+
+    .navbar.active {
+        left: 0; /* Afficher la navigation lorsque le menu est ouvert */
+    }
+
+    .logo.active {
+        display: none; /* Cacher le logo quand les liens sont affichés */
+    }
+}
+
+@media (max-width: 768px) {
+    /* CENTRER ET AÉRER LES PROJETS SUR MOBILE */
+    .projects-container {
+        padding: 1rem;
+    }
+
+    .project-section {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .project-section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* SUPPRIMER LA BORDURE LATÉRALE SUR MOBILE */
+    .project-content {
+        border: 2px solid #00aaff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+
+
+/* Conteneur des projets 
 .projects-container {
     padding: 6rem 5%;
     text-align: center;
 }
 
-/* Section de projet */
+/Section de projet 
 .project-section {
     margin-bottom: 4rem;
     padding: 2rem;
@@ -94,10 +277,10 @@ body {
 .project-section h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ededed;
+    color: #00abf0;  /* Titre en bleu clair 
 }
 
-/* Contenu du projet */
+Contenu du projet 
 .project-content {
     display: flex;
     flex-wrap: wrap;
@@ -106,6 +289,7 @@ body {
     align-items: center;
 }
 
+Image du projet 
 .project-image {
     flex: 1 1 40%;
     max-width: 400px;
@@ -123,6 +307,7 @@ body {
     box-shadow: 0 0 1.5rem rgba(0, 171, 240, 0.8);
 }
 
+Informations du projet 
 .project-info {
     flex: 1 1 50%;
     text-align: left;
@@ -138,7 +323,7 @@ body {
     font-size: 1.6rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
-    color: #00abf0;
+    color: #00abf0;  /* Bleu clair pour les sous-titres 
 }
 
 .project-info p {
@@ -163,11 +348,12 @@ body {
 
 .project-info ul li::before {
     content: "•";
-    color: #00abf0;
+    color: #00abf0;  Point bleu devant chaque item 
     margin-right: 0.5rem;
-}
+} */
 
-.project-info .btn {
+/* Bouton du projet */
+/* .project-info .btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background-color: #00abf0;
@@ -183,4 +369,20 @@ body {
 .project-info .btn:hover {
     background-color: #081b29;
     color: #00abf0;
+} */
+
+/* Animation au survol pour chaque section */
+/* @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+.project-section {
+    animation: slideIn 1s ease-out;  /* Animation fluide pour l'apparition des sections 
+} */
