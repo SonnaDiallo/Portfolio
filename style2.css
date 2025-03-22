@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    box-sizing: border-box; /* Assurer une gestion correcte des marges/paddings */
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -28,8 +28,8 @@ body {
     align-items: center;
     padding: 15px 20px;
     z-index: 1000;
-    overflow: hidden; /* Pour éviter le débordement */
-    box-sizing: border-box; /* Assurer que le padding ne fait pas déborder */
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Menu hamburger */
@@ -53,8 +53,8 @@ body {
 .navbar {
     display: flex;
     gap: 15px;
-    flex-wrap: wrap; /* Permet à la navbar de se réorganiser si nécessaire */
-    justify-content: flex-end; /* Aligner les éléments de la navbar à droite */
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .navbar a {
@@ -68,30 +68,6 @@ body {
     color: var(--main-color);
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .navbar {
-        display: none;
-        flex-direction: column;
-        background: var(--second-bg-color);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-        border-radius: 5px;
-        gap: 10px; /* Espacement entre les liens sur petits écrans */
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    #menu-icon {
-        display: block;
-    }
-}
-
 /* Section À propos */
 .about-details {
     padding: 100px 20px 50px;
@@ -100,7 +76,6 @@ body {
     color: var(--text-color);
 }
 
-/* Conteneur principal */
 .about-details-container {
     display: flex;
     justify-content: center;
@@ -108,15 +83,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
-/* Contenu texte */
 .about-details-content {
     text-align: left;
     max-width: 700px;
 }
 
-/* Design des titres */
 .about-details-content h3 {
     font-size: 28px;
     margin-bottom: 20px;
@@ -171,14 +145,13 @@ body {
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
+    flex-wrap: wrap;
 }
 
-/* Timeline Column */
 .timeline-column {
     width: 45%;
 }
 
-/* Timeline Item */
 .timeline-item {
     display: flex;
     align-items: center;
@@ -196,7 +169,7 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #00abf0; /* Bleu clair */
+    background-color: var(--main-color);
     margin-bottom: 15px;
     position: absolute;
     top: 0;
@@ -206,7 +179,7 @@ body {
 
 .timeline-item h3 {
     font-size: 1.6rem;
-    color: #00abf0;
+    color: var(--main-color);
     margin-bottom: 1rem;
 }
 
@@ -224,4 +197,68 @@ body {
 
 .timeline-item ul li {
     font-size: 1.2rem;
-    color: var(--text-color
+    color: var(--text-color);
+}
+
+/* Responsive pour tablettes et mobiles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background: var(--second-bg-color);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .about-details-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline-column {
+        width: 100%;
+    }
+}
+
+/* Responsive pour très petits écrans */
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+    }
+
+    .about-details-content h3 {
+        font-size: 22px;
+    }
+
+    .about-details-content p,
+    .timeline-item p,
+    .timeline-item ul li {
+        font-size: 1rem;
+    }
+
+    .timeline-item {
+        padding: 1rem;
+    }
+}
