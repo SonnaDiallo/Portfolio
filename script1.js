@@ -1,17 +1,16 @@
-document.addEventListener('scroll', () => {
-    const projectImage = document.querySelector('.project-image');
-    const projectInfo = document.querySelector('.project-info');
+document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");
+    const navbar = document.querySelector(".navbar");
 
-    const imageTop = projectImage.getBoundingClientRect().top;
-    const infoTop = projectInfo.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
+    menuIcon.addEventListener("click", () => {
+        console.log("Menu cliqué !");
+        navbar.classList.toggle("active");
+    });
 
-    if (imageTop < windowHeight * 0.75) {
-        projectImage.classList.add('visible');
-    }
-
-    if (infoTop < windowHeight * 0.75) {
-        projectInfo.classList.add('visible');
-    }
-
+    // Ferme le menu quand un lien est cliqué
+    document.querySelectorAll(".navbar a").forEach(link => {
+        link.addEventListener("click", () => {
+            navbar.classList.remove("active");
+        });
+    });
 });

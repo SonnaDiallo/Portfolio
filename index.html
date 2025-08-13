@@ -6,6 +6,7 @@
     <title>Sonna-Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -30,7 +31,7 @@
             <p>Bonjour, je m'appelle Sonna et je suis à la recherche d'une alternance pour ma troisième année en développement ou data, avec un rythme de 2 semaines à l'école et 3 semaines en entreprise.</p>
             <div class="btn-box">
                 <a href="#contact" class="btn">Contactez-moi</a>
-                <a href="Cv-yasmine/Sonna.pdf.pdf" download="Sonna.pdf">
+                <a href="Cv-yasmine\Cv_alt_Yasmine.pdf" download="Sonna.pdf">
                     <button class="btn">Mon CV</button>
             </a>
             </div>
@@ -172,48 +173,85 @@
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Mes coordonnées</h2>
-            <p class="sous-titre">Contactez moi !</p>
-        
-            <div class="contact-container">
-                <!-- Formulaire de contact -->
-                <form class="contact-form">
-                    <div class="input-group">
-                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="Votre mail" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="subject" name="subject" placeholder="Motif" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea id="message" name="message" placeholder="Votre messsage" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Envoyer</button>
-                </form>
-        
-                <!-- Informations de contact (sans réseaux sociaux) -->
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>Email: dyasmine335@gmail.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>Téléphone: 06-58-02-11-39</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Noisiel, France</span>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Remplacez votre section #contact dans index.html par ceci : -->
+<section id="contact">
+    <h2>Mes coordonnées</h2>
+    <p class="sous-titre">Contactez-moi !</p>
+
+    <div class="contact-container">
+        <!-- Informations de contact améliorées -->
+        <div class="contact-info">
+            <h3>Informations de Contact</h3>
+            
+            <div class="contact-info-item">
+                <i class='bx bx-envelope'></i>
+                <span>dyasmine335@gmail.com</span>
             </div>
-        </section>
+            
+            <div class="contact-info-item">
+                <i class='bx bx-phone'></i>
+                <span>06-58-02-11-39</span>
+            </div>
+            
+            <div class="contact-info-item">
+                <i class='bx bx-map'></i>
+                <span>Noisiel, France</span>
+            </div>
+            
+            <div class="contact-info-item">
+                <i class='bx bx-briefcase'></i>
+                <span>Recherche alternance Dev/Data</span>
+            </div>
+
+            <div class="social-links">
+                <a href="mailto:dyasmine335@gmail.com" title="Email">
+                    <i class='bx bx-envelope'></i>
+                </a>
+                <a href="https://github.com/SonnaDiallo" target="_blank" title="GitHub">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank" title="LinkedIn">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+            </div>
+
+            <div class="response-time">
+                <i class='bx bx-time-five'></i>
+                <p>Réponse garantie sous 24h !</p>
+            </div>
+        </div>
+
+        <!-- Formulaire de contact amélioré -->
+        <form class="contact-form" id="contactForm">
+            <div id="statusMessage" class="status-message"></div>
+            
+            <div class="input-group">
+                <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required>
+                <div class="field-error">Veuillez entrer votre nom (minimum 2 caractères)</div>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+                <div class="field-error">Veuillez entrer une adresse email valide</div>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message" required>
+                <div class="field-error">Veuillez entrer un sujet (minimum 3 caractères)</div>
+            </div>
+            
+            <div class="input-group">
+                <textarea id="message" name="message" placeholder="Votre message détaillé..." rows="5" required></textarea>
+                <div class="field-error">Veuillez entrer votre message (minimum 10 caractères)</div>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                <span class="btn-loading"></span>
+                <span class="btn-text">Envoyer le message</span>
+            </button>
+        </form>
+    </div>
+</section>
 
         <footer class="footer">
             <div class="footer-container">
@@ -261,5 +299,164 @@
             </div>
         </footer>
         <script src="script.js"></script>  
+        // VERSION DE DÉBOGAGE EMAILJS - Remplacez votre script actuel par ceci
+<script>
+    // Configuration EmailJS - VÉRIFIEZ CES VALEURS
+    const EMAIL_CONFIG = {
+        publicKey: 'C20ja4f2-xGo6ByfP',        
+        serviceId: 'service_40qlcnn',                
+        templateId: 'template_0qadicb'     
+    };
+
+    console.log('🔧 Configuration EmailJS:', EMAIL_CONFIG);
+
+    // Initialisation avec gestion d'erreur
+    try {
+        emailjs.init(EMAIL_CONFIG.publicKey);
+        console.log('✅ EmailJS initialisé avec succès');
+    } catch (error) {
+        console.error('❌ Erreur initialisation EmailJS:', error);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+
+        if (!form || !submitBtn) {
+            console.error('❌ Éléments du formulaire non trouvés');
+            return;
+        }
+
+        console.log('✅ Formulaire trouvé et initialisé');
+
+        // Fonction pour afficher les messages
+        function showMessage(message, type) {
+            if (statusMessage) {
+                statusMessage.innerHTML = message;
+                statusMessage.className = `status-message ${type}`;
+                statusMessage.style.display = 'block';
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                // Fallback si pas de statusMessage
+                alert(message);
+            }
+        }
+
+        // Validation simple
+        function validateForm() {
+            const nom = document.getElementById('nom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const sujet = document.getElementById('sujet').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!nom || nom.length < 2) {
+                showMessage('❌ Nom requis (minimum 2 caractères)', 'error');
+                return false;
+            }
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showMessage('❌ Email valide requis', 'error');
+                return false;
+            }
+
+            if (!sujet || sujet.length < 3) {
+                showMessage('❌ Sujet requis (minimum 3 caractères)', 'error');
+                return false;
+            }
+
+            if (!message || message.length < 10) {
+                showMessage('❌ Message requis (minimum 10 caractères)', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Gestionnaire de soumission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            console.log('📝 Tentative d\'envoi du formulaire...');
+
+            // Validation
+            if (!validateForm()) {
+                return;
+            }
+
+            // État de chargement
+            submitBtn.disabled = true;
+            const btnText = submitBtn.querySelector('.btn-text') || submitBtn;
+            const originalText = btnText.textContent;
+            btnText.textContent = 'Envoi en cours...';
+
+            try {
+                // Récupération des données
+                const formData = new FormData(form);
+                
+                // IMPORTANT: Utilisez exactement les mêmes noms que dans votre template EmailJS
+                const templateParams = {
+                    // Ces noms DOIVENT correspondre aux variables {{}} dans votre template
+                    nom: formData.get('nom'),
+                    email: formData.get('email'),
+                    sujet: formData.get('sujet'),
+                    message: formData.get('message')
+                };
+
+                console.log('📤 Données à envoyer:', templateParams);
+                console.log('🎯 Service ID:', EMAIL_CONFIG.serviceId);
+                console.log('📋 Template ID:', EMAIL_CONFIG.templateId);
+
+                // Envoi avec EmailJS
+                const response = await emailjs.send(
+                    EMAIL_CONFIG.serviceId,
+                    EMAIL_CONFIG.templateId,
+                    templateParams
+                );
+
+                console.log('✅ Réponse EmailJS:', response);
+                showMessage('✅ Message envoyé avec succès ! Merci pour votre message.', 'success');
+                form.reset();
+
+            } catch (error) {
+                console.error('❌ Erreur détaillée:', error);
+                console.error('❌ Status:', error.status);
+                console.error('❌ Text:', error.text);
+                
+                let errorMessage = '❌ Erreur lors de l\'envoi. ';
+                
+                // Messages d'erreur spécifiques
+                if (error.status === 400) {
+                    errorMessage += 'Problème de configuration (Erreur 400). Vérifiez vos IDs EmailJS.';
+                } else if (error.status === 401) {
+                    errorMessage += 'Problème d\'authentification (Erreur 401). Vérifiez votre Public Key.';
+                } else if (error.status === 403) {
+                    errorMessage += 'Accès refusé (Erreur 403).';
+                } else if (error.status === 404) {
+                    errorMessage += 'Service ou template non trouvé (Erreur 404).';
+                } else {
+                    errorMessage += `Erreur ${error.status || 'inconnue'}.`;
+                }
+                
+                errorMessage += ' Contactez-moi directement : dyasmine335@gmail.com';
+                
+                showMessage(errorMessage, 'error');
+            } finally {
+                // Restauration du bouton
+                submitBtn.disabled = false;
+                btnText.textContent = originalText;
+            }
+        });
+
+        // Test de connectivité EmailJS
+        console.log('🧪 Test de connectivité...');
+        if (typeof emailjs !== 'undefined') {
+            console.log('✅ EmailJS chargé correctement');
+        } else {
+            console.error('❌ EmailJS non chargé !');
+        }
+    });
+</script>
         </body>
         </html>

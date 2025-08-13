@@ -202,7 +202,7 @@ body {
 
 /* Responsive pour tablettes et mobiles */
 @media screen and (max-width: 768px) {
-    .navbar {
+    #navbar {
         display: none;
         flex-direction: column;
         background: var(--second-bg-color);
@@ -215,50 +215,11 @@ body {
         gap: 10px;
     }
 
-    .navbar.active {
+    #navbar.active {
         display: flex;
     }
 
     #menu-icon {
         display: block;
-    }
-
-    .about-details-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .timeline {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .timeline-column {
-        width: 100%;
-    }
-}
-
-/* Responsive pour très petits écrans */
-@media screen and (max-width: 480px) {
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    .navbar a {
-        font-size: 0.9rem;
-    }
-
-    .about-details-content h3 {
-        font-size: 22px;
-    }
-
-    .about-details-content p,
-    .timeline-item p,
-    .timeline-item ul li {
-        font-size: 1rem;
-    }
-
-    .timeline-item {
-        padding: 1rem;
     }
 }
