@@ -1,462 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonna-Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <meta name="description" content="Portfolio de Sonna Diallo - Étudiante en informatique recherchant une alternance en développement web et data. Compétences en HTML, CSS, JavaScript, Python, C++, MySQL.">
+    <meta name="keywords" content="développement web, data science, alternance, portfolio, Sonna Diallo, développeuse, programmation, Paris">
+    <meta name="author" content="Sonna Diallo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.fr/">
+    <meta property="og:title" content="Sonna Diallo - Portfolio Développeuse Web & Data">
+    <meta property="og:description" content="Étudiante en informatique recherchant une alternance en développement web et data">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sonna Diallo - Portfolio Développeuse Web & Data">
+    <meta name="twitter:description" content="Étudiante en informatique recherchant une alternance">
+    
+    <title>Sonna Diallo - Portfolio | Développeuse Web & Data | Alternance 2025</title>
+    
+    <!-- Preconnect pour optimiser le chargement des ressources externes -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- Critical CSS inline pour le premier rendu -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;text-decoration:none;border:none;outline:none;scroll-behavior:smooth;font-family:'Poppins',sans-serif}
+        :root{--bg-color:#081b29;--second-bg-color:#112e42;--text-color:#ededed;--main-color:#00abf0}
+        html{font-size:62.5%;overflow-x:hidden}
+        body{background:var(--bg-color);color:var(--text-color);line-height:1.6}
+        .header{position:fixed;top:0;left:0;width:100%;padding:2rem 9%;background:var(--bg-color);display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.3)}
+        .logo{font-size:2.5rem;color:var(--text-color);font-weight:600;cursor:pointer;transition:color 0.3s}
+        .logo:hover{color:var(--main-color)}
+        #menu-icon{font-size:3.6rem;color:var(--text-color);cursor:pointer;display:none}
+        .navbar{display:flex;gap:3.5rem}
+        .navbar a{font-size:1.7rem;color:var(--text-color);font-weight:500;transition:color 0.3s}
+        .navbar a:hover,.navbar a.active{color:var(--main-color)}
+        
+        /* Skeleton loader pour images */
+        .skeleton{background:linear-gradient(90deg,#112e42 25%,#1a3f58 50%,#112e42 75%);background-size:200% 100%;animation:loading 1.5s infinite}
+        @keyframes loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
+        
+        @media(max-width:768px){
+            #menu-icon{display:block}
+            .navbar{position:absolute;top:100%;left:-100%;width:100%;background:var(--bg-color);flex-direction:column;align-items:center;padding:1rem 0;transition:left 0.3s}
+            .navbar.active{left:0}
+        }
+    </style>
+    
+    <!-- Chargement CSS principal de manière asynchrone -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Boxicons chargé de manière asynchrone -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
+    <noscript><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></noscript>
 </head>
 <body>
+    <!-- Header avec navigation -->
     <header class="header">
-        <!-- Icône menu hamburger -->
-        <div id="menu-icon" class="bx bx-menu"></div>
-    
-        <a href="#" class="logo" id="logo">Sonna.</a>
-        <nav class="navbar" id="navbar">
-            <a href="#home" class="active">Acceuil</a>
+        <div id="menu-icon" class="bx bx-menu" role="button" aria-label="Menu de navigation" tabindex="0"></div>
+        <a href="#home" class="logo" aria-label="Retour à l'accueil">Sonna.</a>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <a href="#home" class="active">Accueil</a>
             <a href="#about">Qui suis-je ?</a>
             <a href="#skills">Compétences</a>
             <a href="#projects">Projets</a>
-            <a href="#contact">Contacts</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-    
 
+    <!-- Section Accueil -->
     <section class="home" id="home">
         <div class="home-content">
             <h1>Salut, je suis <span>Sonna</span></h1>
-            <h3>Etudiante en informatique</h3>
+            <h3>Étudiante en informatique</h3>
             <p>Bonjour, je m'appelle Sonna et je suis à la recherche d'une alternance pour ma troisième année en développement ou data, avec un rythme de 2 semaines à l'école et 3 semaines en entreprise.</p>
             <div class="btn-box">
-                <a href="#contact" class="btn">Contactez-moi</a>
-                <a href="Cv-yasmine\Cv_alt_Yasmine.pdf" download="Sonna.pdf">
+                <a href="#contact" class="btn" aria-label="Me contacter">Contactez-moi</a>
+                <a href="Cv-yasmine/Cv_alt_Yasmine.pdf" download="Sonna_Diallo_CV.pdf" aria-label="Télécharger mon CV">
                     <button class="btn">Mon CV</button>
-            </a>
+                </a>
             </div>
         </div>
 
-         <div class="home-img">
-            <img src="image/S-removebg-preview (1) (1).png" alt="Sonna">
+        <div class="home-img">
+            <!-- Image avec lazy loading et placeholder -->
+            <img 
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 600'%3E%3Crect fill='%23112e42' width='500' height='600'/%3E%3C/svg%3E"
+                data-src="image/S-removebg-preview (1) (1).png"
+                alt="Portrait de Sonna Diallo - Étudiante en informatique spécialisée en développement web et data"
+                width="500"
+                height="600"
+                class="lazy skeleton"
+                loading="eager">
         </div> 
 
         <div class="home-sci">
-            <a href="https://mail.google.com/mail/u/0/?ogbl#inbox"><i class='bx bxl-gmail'></i></a>
-            <a href="https://github.com/SonnaDiallo"><i class='bx bxl-github' ></i></i></a>
-            <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/"><i class='bx bxl-linkedin'></i></a>
+            <a href="mailto:dyasmine335@gmail.com" aria-label="Envoyer un email à Sonna"><i class='bx bxl-gmail'></i></a>
+            <a href="https://github.com/SonnaDiallo" target="_blank" rel="noopener noreferrer" aria-label="Visiter le profil GitHub de Sonna"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank" rel="noopener noreferrer" aria-label="Visiter le profil LinkedIn de Sonna"><i class='bx bxl-linkedin'></i></a>
         </div>
     </section>
 
+    <!-- Section À propos -->
     <section class="about" id="about">
-        <h2 class="heading">A propos de <span>Moi</span></h2>
+        <h2 class="heading">À propos de <span>Moi</span></h2>
     
         <div class="about-container">
             <div class="about-img">
-                <img src="image\M-removebg-preview (1).png" alt="Photo de Sonna">
+                <img 
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23112e42' width='400' height='500'/%3E%3C/svg%3E"
+                    data-src="image/M-removebg-preview (1).png"
+                    alt="Photo professionnelle de Sonna Diallo - Développeuse web et data"
+                    width="400"
+                    height="500"
+                    class="lazy skeleton"
+                    loading="lazy">
             </div>
     
             <div class="about-content">
-                <h3>Etudiante en informatique !</h3>
+                <h3>Étudiante en informatique !</h3>
                 <p>Passionnée par le développement web, je suis en constante évolution pour maîtriser les technologies les plus récentes et offrir des solutions efficaces et créatives.</p>
                 <div class="btn-box btns">
-                    <a href="a-propos-details.html" class="btn">En savoir-plus</a>
+                    <a href="a-propos-details.html" class="btn" aria-label="En savoir plus sur mon parcours">En savoir plus</a>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Section projects -->
-<section id="projects">
-    <div class="container">
-        <h2>Mes projets</h2>
-        <div class="projets-grid">
-            <div class="projet">
-                <img src="image\pacman.png" alt="Projet 1">
-                <h3>Pac-Man</h3>
-                <p>Développement du jeux pacman</p>
-                <a href="page1.html" class="bouton">Découvrez</a>
+    <!-- Section Projets -->
+    <section id="projects">
+        <div class="container">
+            <h2>Mes projets</h2>
+            <div class="projets-grid">
+                <article class="projet">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23112e42' width='300' height='200'/%3E%3C/svg%3E"
+                        data-src="image/pacman.png"
+                        alt="Projet Pac-Man - Jeu développé en programmation avec gestion des collisions"
+                        width="300"
+                        height="200"
+                        class="lazy skeleton"
+                        loading="lazy">
+                    <h3>Pac-Man</h3>
+                    <p>Développement du jeu Pac-Man avec intelligence artificielle</p>
+                    <a href="page1.html" class="bouton" aria-label="Découvrir le projet Pac-Man">Découvrez</a>
+                </article>
+                
+                <article class="projet">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23112e42' width='300' height='200'/%3E%3C/svg%3E"
+                        data-src="image/image.png"
+                        alt="Projet C++ - Système de réservation de billets TGV avec base de données"
+                        width="300"
+                        height="200"
+                        class="lazy skeleton"
+                        loading="lazy">
+                    <h3>Projet C++</h3>
+                    <p>Réservation billet TGV avec gestion des places</p>
+                    <a href="page1.html" class="bouton" aria-label="Découvrir le projet C++">Découvrez</a>
+                </article>
+                
+                <article class="projet">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23112e42' width='300' height='200'/%3E%3C/svg%3E"
+                        data-src="image/C++.png"
+                        alt="Projet Pet Service - Portfolio de services pour animaux de compagnie"
+                        width="300"
+                        height="200"
+                        class="lazy skeleton"
+                        loading="lazy">
+                    <h3>Pet Service</h3>
+                    <p>Portfolio de services pour animaux</p>
+                    <a href="page1.html" class="bouton" aria-label="Découvrir le projet Pet Service">Découvrez</a>
+                </article>
+                
+                <article class="projet">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23112e42' width='300' height='200'/%3E%3C/svg%3E"
+                        data-src="image/Java.png"
+                        alt="Projet Java - Interface dynamique développée avec JavaFX"
+                        width="300"
+                        height="200"
+                        class="lazy skeleton"
+                        loading="lazy">
+                    <h3>Projet Java</h3>
+                    <p>Interface dynamique avec architecture MVC</p>
+                    <a href="page1.html" class="bouton" aria-label="Découvrir le projet Java">Découvrez</a>
+                </article>
             </div>
-            <div class="projet">
-                <img src="image\image.png" alt="Projet 2">
-                <h3>Projet C++</h3>
-                <p>Réservation billet TGV</p>
-                <a href="page1.html" class="bouton">Découvrez</a>
-            </div>
-            <div class="projet">
-                <img src="image\C++.png" alt="Projet 3">
-                <h3>Pet Service</h3>
-                <p>portofolio</p>
-                <a href="page1.html" class="bouton">Découvrez</a>
-            </div>
-            <div class="projet">
-                <img src="image\Java.png" alt="Projet 3">
-                <h3>Projet Java</h3>
-                <p>Interface dynamique</p>
-                <a href="page1.html" class="bouton">Découvrez</a>
-            </div>
+            
+            <!-- Section Compétences -->
+            <section id="skills">
+                <h2>Mes compétences</h2>
+            
+                <div class="skills-container">
+                    <!-- Coding Skills -->
+                    <div class="skills-category">
+                        <h3>Programmation</h3>
+                        <div class="skill">
+                            <span>HTML</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>CSS</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>JavaScript</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%;" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> 
+                        </div>
+                        <div class="skill">
+                            <span>Python</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>C++</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>MySQL</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Professional Skills -->
+                    <div class="skills-category">
+                        <h3>Autres</h3>
+                        <div class="skill">
+                            <span>Web Design</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Développement Web</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 67%;" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Data Science</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>SEO Marketing</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Mes coordonnées</h2>
+                <p class="sous-titre">Contactez-moi !</p>
+
+                <div class="contact-container">
+                    <!-- Informations de contact -->
+                    <div class="contact-info">
+                        <h3>Informations de Contact</h3>
+                        
+                        <div class="contact-info-item">
+                            <i class='bx bx-envelope'></i>
+                            <span>dyasmine335@gmail.com</span>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class='bx bx-phone'></i>
+                            <span>06-58-02-11-39</span>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class='bx bx-map'></i>
+                            <span>Noisiel, France</span>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class='bx bx-briefcase'></i>
+                            <span>Recherche alternance Dev/Data</span>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="mailto:dyasmine335@gmail.com" title="Email" aria-label="Envoyer un email">
+                                <i class='bx bx-envelope'></i>
+                            </a>
+                            <a href="https://github.com/SonnaDiallo" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="Visiter GitHub">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Visiter LinkedIn">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                        </div>
+
+                        <div class="response-time">
+                            <i class='bx bx-time-five'></i>
+                            <p>Réponse garantie sous 24h !</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire de contact -->
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div id="statusMessage" class="status-message" role="alert"></div>
+                        
+                        <div class="input-group">
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required aria-required="true" aria-label="Votre nom complet">
+                            <div class="field-error" role="alert">Veuillez entrer votre nom (minimum 2 caractères)</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="Votre adresse email" required aria-required="true" aria-label="Votre adresse email">
+                            <div class="field-error" role="alert">Veuillez entrer une adresse email valide</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message" required aria-required="true" aria-label="Sujet du message">
+                            <div class="field-error" role="alert">Veuillez entrer un sujet (minimum 3 caractères)</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <textarea id="message" name="message" placeholder="Votre message détaillé..." rows="5" required aria-required="true" aria-label="Votre message"></textarea>
+                            <div class="field-error" role="alert">Veuillez entrer votre message (minimum 10 caractères)</div>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="submitBtn">
+                            <span class="btn-loading" aria-hidden="true"></span>
+                            <span class="btn-text">Envoyer le message</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-col">
+                        <h3>À propos</h3>
+                        <p>Je suis Sonna, étudiante en informatique passionnée par le développement web. Ce portfolio présente mes projets et compétences.</p>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Liens utiles</h3>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#about">À propos</a></li>
+                            <li><a href="#skills">Compétences</a></li>
+                            <li><a href="#projects">Projets</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Réseaux sociaux</h3>
+                        <div class="footer-social">
+                            <a href="mailto:dyasmine335@gmail.com" aria-label="Email"><i class='bx bxl-gmail'></i></a>
+                            <a href="https://github.com/SonnaDiallo" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                            <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>dyasmine335@gmail.com</li>
+                            <li>06-58-02-11-39</li>
+                            <li>Noisiel, France</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Sonna Diallo. Tous droits réservés.</p>
+                </div>
+            </footer>
         </div>
-        <section id="skills">
-            <h2>Mes compétences</h2>
-        
-            <div class="skills-container">
-                 <!-- Coding Skills -->
-                <div class="skills-category">
-                    <h3>Programations</h3>
-                    <div class="skill">
-                        <span>HTML</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>CSS</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>JavaScript</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 65%;"></div>
-                        </div> 
-                    </div>
-                    <div class="skill">
-                        <span>Python</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <!-- Ajout de C++ et MySQL -->
-                    <div class="skill">
-                        <span>C++</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>MySQL</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%;"></div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Professional Skills -->
-                <div class="skills-category">
-                    <h3>Autres </h3>
-                    <div class="skill">
-                        <span>Web Design</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>  Developpement Web</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 67%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Data</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>SEO Marketing</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    </section>
 
-        <!-- Remplacez votre section #contact dans index.html par ceci : -->
-<section id="contact">
-    <h2>Mes coordonnées</h2>
-    <p class="sous-titre">Contactez-moi !</p>
-
-    <div class="contact-container">
-        <!-- Informations de contact améliorées -->
-        <div class="contact-info">
-            <h3>Informations de Contact</h3>
-            
-            <div class="contact-info-item">
-                <i class='bx bx-envelope'></i>
-                <span>dyasmine335@gmail.com</span>
-            </div>
-            
-            <div class="contact-info-item">
-                <i class='bx bx-phone'></i>
-                <span>06-58-02-11-39</span>
-            </div>
-            
-            <div class="contact-info-item">
-                <i class='bx bx-map'></i>
-                <span>Noisiel, France</span>
-            </div>
-            
-            <div class="contact-info-item">
-                <i class='bx bx-briefcase'></i>
-                <span>Recherche alternance Dev/Data</span>
-            </div>
-
-            <div class="social-links">
-                <a href="mailto:dyasmine335@gmail.com" title="Email">
-                    <i class='bx bx-envelope'></i>
-                </a>
-                <a href="https://github.com/SonnaDiallo" target="_blank" title="GitHub">
-                    <i class='bx bxl-github'></i>
-                </a>
-                <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank" title="LinkedIn">
-                    <i class='bx bxl-linkedin'></i>
-                </a>
-            </div>
-
-            <div class="response-time">
-                <i class='bx bx-time-five'></i>
-                <p>Réponse garantie sous 24h !</p>
-            </div>
-        </div>
-
-        <!-- Formulaire de contact amélioré -->
-        <form class="contact-form" id="contactForm">
-            <div id="statusMessage" class="status-message"></div>
-            
-            <div class="input-group">
-                <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required>
-                <div class="field-error">Veuillez entrer votre nom (minimum 2 caractères)</div>
-            </div>
-            
-            <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
-                <div class="field-error">Veuillez entrer une adresse email valide</div>
-            </div>
-            
-            <div class="input-group">
-                <input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message" required>
-                <div class="field-error">Veuillez entrer un sujet (minimum 3 caractères)</div>
-            </div>
-            
-            <div class="input-group">
-                <textarea id="message" name="message" placeholder="Votre message détaillé..." rows="5" required></textarea>
-                <div class="field-error">Veuillez entrer votre message (minimum 10 caractères)</div>
-            </div>
-            
-            <button type="submit" class="btn" id="submitBtn">
-                <span class="btn-loading"></span>
-                <span class="btn-text">Envoyer le message</span>
-            </button>
-        </form>
-    </div>
-</section>
-
-        <footer class="footer">
-            <div class="footer-container">
-                <!-- Section À propos -->
-                <div class="footer-section">
-                    <h3>À propos</h3>
-                    <p>Je suis Sonna, étudiante en informatique passionnée par le développement web. Ce portfolio présente mes projets et compétences.</p>
-                </div>
-        
-                <!-- Section Liens utiles -->
-                <div class="footer-section">
-                    <h3>Liens utiles</h3>
-                    <ul>
-                        <li><a href="#home">Accueil</a></li>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#skills">Compétences</a></li>
-                        <li><a href="#projects">Projets</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-        
-                <!-- Section Réseaux sociaux -->
-                <div class="footer-section">
-                    <h3>Réseaux sociaux</h3>
-                    <div class="social-links">
-                        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class='bx bxl-gmail'></i></a>
-                        <a href="https://github.com/SonnaDiallo"><i class='bx bxl-github' ></i></i></a>
-                        <a href="https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/" target="_blank"><i class='bx bxl-linkedin'></i></a>                    </div>
-                </div>
-        
-                <!-- Section Contact -->
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class='bx bx-envelope'></i> dyasmine335@gmail.com</li>
-                        <li><i class='bx bx-phone'></i> 06-58-02-11-39</li>
-                        <li><i class='bx bx-map'></i> Noisiel, France</li>
-                    </ul>
-                </div>
-            </div>
-        
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sonna. Tous droits réservés.</p>
-            </div>
-        </footer>
-        <script src="script.js"></script>  
-        // VERSION DE DÉBOGAGE EMAILJS - Remplacez votre script actuel par ceci
-<script>
-    // Configuration EmailJS - VÉRIFIEZ CES VALEURS
-    const EMAIL_CONFIG = {
-        publicKey: 'C20ja4f2-xGo6ByfP',        
-        serviceId: 'service_40qlcnn',                
-        templateId: 'template_0qadicb'     
-    };
-
-    console.log('🔧 Configuration EmailJS:', EMAIL_CONFIG);
-
-    // Initialisation avec gestion d'erreur
-    try {
-        emailjs.init(EMAIL_CONFIG.publicKey);
-        console.log('✅ EmailJS initialisé avec succès');
-    } catch (error) {
-        console.error('❌ Erreur initialisation EmailJS:', error);
+    <!-- JavaScript optimisé chargé avec defer -->
+    <script src="script.js" defer></script>
+    
+    <!-- Schema.org Structured Data pour le SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sonna Diallo",
+        "alternateName": "Sogona Yasmine Diallo",
+        "jobTitle": "Étudiante en Informatique",
+        "description": "Étudiante en informatique recherchant une alternance en développement web et data science",
+        "email": "dyasmine335@gmail.com",
+        "telephone": "+33658021139",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Noisiel",
+            "addressRegion": "Île-de-France",
+            "addressCountry": "FR"
+        },
+        "url": "https://votre-domaine.fr",
+        "sameAs": [
+            "https://github.com/SonnaDiallo",
+            "https://www.linkedin.com/in/sogona-yasmine-diallo-b998722b8/"
+        ],
+        "knowsAbout": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Python",
+            "C++",
+            "MySQL",
+            "Web Design",
+            "Data Science",
+            "SEO"
+        ],
+        "seeks": {
+            "@type": "EducationalOccupationalProgram",
+            "name": "Alternance en Développement Web ou Data Science",
+            "occupationalCategory": "Développeur Web / Data Scientist"
+        }
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const statusMessage = document.getElementById('statusMessage');
-
-        if (!form || !submitBtn) {
-            console.error('❌ Éléments du formulaire non trouvés');
-            return;
-        }
-
-        console.log('✅ Formulaire trouvé et initialisé');
-
-        // Fonction pour afficher les messages
-        function showMessage(message, type) {
-            if (statusMessage) {
-                statusMessage.innerHTML = message;
-                statusMessage.className = `status-message ${type}`;
-                statusMessage.style.display = 'block';
-                setTimeout(() => {
-                    statusMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                // Fallback si pas de statusMessage
-                alert(message);
-            }
-        }
-
-        // Validation simple
-        function validateForm() {
-            const nom = document.getElementById('nom').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const sujet = document.getElementById('sujet').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!nom || nom.length < 2) {
-                showMessage('❌ Nom requis (minimum 2 caractères)', 'error');
-                return false;
-            }
-
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showMessage('❌ Email valide requis', 'error');
-                return false;
-            }
-
-            if (!sujet || sujet.length < 3) {
-                showMessage('❌ Sujet requis (minimum 3 caractères)', 'error');
-                return false;
-            }
-
-            if (!message || message.length < 10) {
-                showMessage('❌ Message requis (minimum 10 caractères)', 'error');
-                return false;
-            }
-
-            return true;
-        }
-
-        // Gestionnaire de soumission
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            console.log('📝 Tentative d\'envoi du formulaire...');
-
-            // Validation
-            if (!validateForm()) {
-                return;
-            }
-
-            // État de chargement
-            submitBtn.disabled = true;
-            const btnText = submitBtn.querySelector('.btn-text') || submitBtn;
-            const originalText = btnText.textContent;
-            btnText.textContent = 'Envoi en cours...';
-
-            try {
-                // Récupération des données
-                const formData = new FormData(form);
-                
-                // IMPORTANT: Utilisez exactement les mêmes noms que dans votre template EmailJS
-                const templateParams = {
-                    // Ces noms DOIVENT correspondre aux variables {{}} dans votre template
-                    nom: formData.get('nom'),
-                    email: formData.get('email'),
-                    sujet: formData.get('sujet'),
-                    message: formData.get('message')
-                };
-
-                console.log('📤 Données à envoyer:', templateParams);
-                console.log('🎯 Service ID:', EMAIL_CONFIG.serviceId);
-                console.log('📋 Template ID:', EMAIL_CONFIG.templateId);
-
-                // Envoi avec EmailJS
-                const response = await emailjs.send(
-                    EMAIL_CONFIG.serviceId,
-                    EMAIL_CONFIG.templateId,
-                    templateParams
-                );
-
-                console.log('✅ Réponse EmailJS:', response);
-                showMessage('✅ Message envoyé avec succès ! Merci pour votre message.', 'success');
-                form.reset();
-
-            } catch (error) {
-                console.error('❌ Erreur détaillée:', error);
-                console.error('❌ Status:', error.status);
-                console.error('❌ Text:', error.text);
-                
-                let errorMessage = '❌ Erreur lors de l\'envoi. ';
-                
-                // Messages d'erreur spécifiques
-                if (error.status === 400) {
-                    errorMessage += 'Problème de configuration (Erreur 400). Vérifiez vos IDs EmailJS.';
-                } else if (error.status === 401) {
-                    errorMessage += 'Problème d\'authentification (Erreur 401). Vérifiez votre Public Key.';
-                } else if (error.status === 403) {
-                    errorMessage += 'Accès refusé (Erreur 403).';
-                } else if (error.status === 404) {
-                    errorMessage += 'Service ou template non trouvé (Erreur 404).';
-                } else {
-                    errorMessage += `Erreur ${error.status || 'inconnue'}.`;
-                }
-                
-                errorMessage += ' Contactez-moi directement : dyasmine335@gmail.com';
-                
-                showMessage(errorMessage, 'error');
-            } finally {
-                // Restauration du bouton
-                submitBtn.disabled = false;
-                btnText.textContent = originalText;
-            }
-        });
-
-        // Test de connectivité EmailJS
-        console.log('🧪 Test de connectivité...');
-        if (typeof emailjs !== 'undefined') {
-            console.log('✅ EmailJS chargé correctement');
-        } else {
-            console.error('❌ EmailJS non chargé !');
-        }
-    });
-</script>
-        </body>
-        </html>
+    </script>
+</body>
+</html>
