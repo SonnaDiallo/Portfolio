@@ -233,6 +233,7 @@ body.keyboard-nav *:focus {
     box-shadow: 0 0 40px rgba(0, 171, 240, 0.6);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     animation: float 3s ease-in-out infinite;
+    display: block;
 }
 
 @keyframes float {
@@ -250,6 +251,7 @@ img.skeleton {
     background: linear-gradient(90deg, #112e42 25%, #1a3f58 50%, #112e42 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
+    min-height: 200px;
 }
 
 @keyframes loading {
@@ -259,6 +261,7 @@ img.skeleton {
 
 img.loaded {
     animation: fadeIn 0.5s ease-in;
+    min-height: auto;
 }
 
 @keyframes fadeIn {
@@ -884,12 +887,17 @@ img.loaded {
 
 /* ====== ANIMATIONS DES SECTIONS ====== */
 section {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-section.visible {
+section.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+section.animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
 }

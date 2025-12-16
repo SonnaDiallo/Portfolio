@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Mobile - Portfolio Sonna</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #081b29;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .status {
+            background: #112e42;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #00abf0;
+        }
+        
+        .error {
+            border-left-color: #f44336;
+        }
+        
+        .success {
+            border-left-color: #4caf50;
+        }
+        
+        h1 {
+            color: #00abf0;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: #00abf0;
+            color: #081b29;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        
+        .info {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnostic Mobile</h1>
+    
+    <div id="results"></div>
+    
+    <button onclick="runTests()">🧪 Lancer les tests</button>
+    <button onclick="checkImages()">🖼️ Vérifier les images</button>
+    <button onclick="location.href='index.html'">🏠 Retour au portfolio</button>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, type = 'status') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+        }
+        
+        function runTests() {
+            results.innerHTML = '<h2>📊 Résultats des tests</h2>';
+            
+            // Test 1: Viewport
+            addResult(`
+                <strong>✅ Viewport:</strong><br>
+                Largeur: ${window.innerWidth}px<br>
+                Hauteur: ${window.innerHeight}px
+            `, 'success');
+            
+            // Test 2: JavaScript
+            addResult(`
+                <strong>✅ JavaScript:</strong> Fonctionne correctement
+            `, 'success');
+            
+            // Test 3: IntersectionObserver
+            const hasIO = 'IntersectionObserver' in window;
+            addResult(`
+                <strong>${hasIO ? '✅' : '❌'} IntersectionObserver:</strong> 
+                ${hasIO ? 'Supporté' : 'Non supporté (fallback activé)'}
+            `, hasIO ? 'success' : 'error');
+            
+            // Test 4: Connection
+            if ('connection' in navigator) {
+                const conn = navigator.connection;
+                addResult(`
+                    <strong>📶 Connexion:</strong><br>
+                    Type: ${conn.effectiveType || 'Inconnu'}<br>
+                    Downlink: ${conn.downlink || 'N/A'} Mbps
+                `, 'status');
+            }
+            
+            // Test 5: Performance
+            if (performance.memory) {
+                addResult(`
+                    <strong>💾 Mémoire:</strong><br>
+                    Utilisée: ${(performance.memory.usedJSHeapSize / 1048576).toFixed(2)} MB
+                `, 'status');
+            }
+            
+            // Test 6: User Agent
+            addResult(`
+                <strong>📱 Navigateur:</strong><br>
+                <div class="info">${navigator.userAgent}</div>
+            `, 'status');
+        }
+        
+        function checkImages() {
+            results.innerHTML = '<h2>🖼️ Vérification des images</h2>';
+            
+            const imagesToCheck = [
+                'image/S-removebg-preview (1) (1).png',
+                'image/M-removebg-preview (1).png',
+                'image/pacman.png',
+                'image/image.png',
+                'image/C++.png',
+                'image/Java.png'
+            ];
+            
+            let loaded = 0;
+            let failed = 0;
+            
+            imagesToCheck.forEach(src => {
+                const img = new Image();
+                
+                img.onload = function() {
+                    loaded++;
+                    addResult(`
+                        <strong>✅ ${src}</strong><br>
+                        Dimensions: ${this.width}x${this.height}px<br>
+                        Poids estimé: ${((this.width * this.height * 4) / 1024).toFixed(2)} KB
+                    `, 'success');
+                };
+                
+                img.onerror = function() {
+                    failed++;
+                    addResult(`
+                        <strong>❌ ${src}</strong><br>
+                        Erreur de chargement
+                    `, 'error');
+                };
+                
+                img.src = src;
+            });
+            
+            setTimeout(() => {
+                addResult(`
+                    <strong>📊 Résumé:</strong><br>
+                    Chargées: ${loaded} / ${imagesToCheck.length}<br>
+                    Échouées: ${failed}
+                `, loaded === imagesToCheck.length ? 'success' : 'error');
+            }, 3000);
+        }
+        
+        // Lancer automatiquement au chargement
+        window.addEventListener('load', () => {
+            addResult(`
+                <strong>✅ Page chargée en ${performance.now().toFixed(2)}ms</strong>
+            `, 'success');
+        });
+    </script>
+</body>
+</html>
